@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 导入Vue -->
+  <script src="https://cdn.bootcss.com/vue/2.5.9/vue.js"></script>
+  <!-- 导入Vue的Router -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
+</head>
+
+<body>
+  <!-- MVVM的view部分 作用:负责呈现 -->
+  <div id="app">
+    <router-link to='/goodsList'>商品列表</router-link>
+    <router-link to='/newsList'>新闻列表</router-link>
+
+    <!-- 路由出口 -->
+    <!-- 路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
+  </div>
+</body>
+<!-- VM & M 的代码写在script中 -->
+<script>
+
+  // 定义组件
+  var goodsListComponent = Vue.extend({
+    template:'<ul><li>卫龙辣条</li><li>6块麻辣烫</li><li>金拱门10元超级辣堡</li></ul>'
+  })
+
+  var newsListComponent = {
+    template:'<ul><li>强哥任村长</li><li>给我3000城管，我能解放日本</li><li>奚梦瑶摔跤火了</li></ul>'
+  }
+
+// 创建路由对象，设置路由规则
+  const router = new VueRouter({
+    routes:[
+      {path:'/goodsList',component:goodsListComponent},
+      {path:'/newsList',component:newsListComponent}
+    ]
+  })
+
+
+  var vm = new Vue({
+    el: '#app',
+    // 在vm中打开路由
+    router:router
+  })
+</script>
+
+</html>

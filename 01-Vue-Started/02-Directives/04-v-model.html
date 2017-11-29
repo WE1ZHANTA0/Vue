@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.9/vue.js"></script>
+</head>
+<body>
+  <!-- MVVM的view部分 作用:负责呈现 -->
+  <div id="app">
+    用户名:<input type="text" v-model='userName'>
+    密码:<input type="text" v-model='passWord'>
+    年龄:<input type="text" v-model='age'>
+    <button @click='btn()'>注册</button>
+  </div>
+</body>
+<!-- VM & M 的代码写在script中 -->
+<script>
+  var vm = new Vue({
+    el:'#app',
+    data:{
+      userName:'admin',
+      passWord:'',
+      age:''
+    },
+    methods:{
+      btn:function(){
+        // 发送请求给服务器把值提交给服务器
+        console.log(this.userName,this.passWord,this.age)
+      }
+    }
+  })
+</script>
+</html>

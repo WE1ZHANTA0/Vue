@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.9/vue.js"></script>
+</head>
+
+<body>
+  <!-- MVVM的view部分 作用:负责呈现 -->
+  <div id="app">
+    <ul>
+      <!-- 无索引的写法 -->
+      <!-- <li v-for='item in persons '>
+        {{item.name}}-------{{item.age}}
+      </li> -->
+
+
+      <!-- 有索引的写法 -->
+      <li v-for='(v,i) in persons'>
+        {{i+1}}---{{v.name}}-------{{v.age}}
+      </li>
+    </ul>
+
+  </div>
+</body>
+<!-- VM & M 的代码写在script中 -->
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      persons: [{
+          id: 10001,
+          name: "张无忌",
+          age: 666
+        },
+        {
+          id: 10002,
+          name: "赵敏",
+          age: 660
+        },
+        {
+          id: 10003,
+          name: "尼古拉斯-赵四",
+          age: 680
+        }
+      ]
+    },
+    methods: {
+
+    }
+  })
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.9/vue.js"></script>
+</head>
+
+<body>
+  <!-- MVVM的view部分 作用:负责呈现 -->
+  <div id="app">
+    使用v-if
+    <p v-if='isShow'>the good man </p>
+    <br/> 使用v-show
+    <p v-show='isShow'>the bad man </p>
+    <br/>
+    <button @click='click()'>切换</button>
+    <br>
+    <br>
+    <br> 
+    
+    v-if&v-else-if
+    <div v-if="type==='A'">A</div>
+    <div v-else-if="type==='B'">B</div>
+    <div v-else-if="type==='C'">C</div>
+    <div v-else>JDKFJSLDFJ</div>
+  </div>
+</body>
+<!-- VM & M 的代码写在script中 -->
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      isShow: true,
+      type: 'B'
+    },
+    methods: {
+      click: function () {
+        this.isShow = !this.isShow
+
+      }
+    }
+  })
+</script>
+
+</html>

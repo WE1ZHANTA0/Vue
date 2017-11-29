@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.9/vue.js"></script>
+</head>
+
+<body>
+  <!-- MVVM的view部分 作用:负责呈现 -->
+  <div id="app">
+    <!-- 自定义标签  -->
+    <news></news>
+  </div>
+</body>
+
+
+<script type="text/html" id="template">
+  <div>
+    <ul>
+      <li v-for="item in newsList">{{item.title|toLC('HAHAHAHAHAH')}}</li>
+    </ul>
+  </div>
+</script>
+
+
+
+
+<!-- VM & M 的代码写在script中 -->
+<script>
+  // 定义和注册一起
+  Vue.component('news', {
+    template: "#template",
+    data: function () {
+      return {
+        newsList:[
+          {title:'Three final CEE countries align with Belt, Road Initiative'},
+          {title:'红蓝绿，丧尽天良'},
+          {title:'宁波大爆炸'}
+        ]
+      }
+    },
+    filters:{
+      // 大写转小写
+      toLC:function(input,name){
+        console.log(name);
+        return input.toLowerCase();
+      }
+    }
+  })
+
+  var vm = new Vue({
+    el: '#app',
+
+  })
+</script>
+
+</html>
