@@ -10,6 +10,20 @@
 </head>
 
 <body>
+  <!-- 
+      v-if   根据条件创建或者清楚dom元素
+      v-show 根据条件显示或是隐藏dom元素 
+    -->
+
+  <!-- 
+      当我们给定的boolean为真，表现是一样的
+      当我们给定的boolean为假，v-if会把dom节点干掉，v-show不会把其干掉，但是通过样式隐藏
+
+      应用场景:(考你的就是性能优化相关)
+	      当需要进行频繁切换的时候，推荐用v-show
+	      当需要在条件达到的时候，才创建dom元素，就是用v-if
+     -->
+
   <!-- MVVM的view部分 作用:负责呈现 -->
   <div id="app">
     使用v-if
@@ -20,9 +34,7 @@
     <button @click='click()'>切换</button>
     <br>
     <br>
-    <br> 
-    
-    v-if&v-else-if
+    <br> v-if&v-else-if
     <div v-if="type==='A'">A</div>
     <div v-else-if="type==='B'">B</div>
     <div v-else-if="type==='C'">C</div>
