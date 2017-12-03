@@ -12,7 +12,21 @@ module.exports = {
       use: [
         {loader: "vue-loader"}
       ]
-    }]
+    },
+    {
+      test: /\.css$/,
+      use: [
+        {loader: "vue-style-loader"},
+        {loader: "css-loader"}
+      ]
+    },
+    {
+      test:/\.(ttf|png)$/,
+      use:[
+        {loader:'file-loader'}
+      ]
+    }  
+  ]
   },
   plugins:[
     new HtmlWebpackPlugin({
