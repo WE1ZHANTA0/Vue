@@ -24,10 +24,10 @@
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="/goods/goodslist/">
           <span class="mui-icon mui-icon-chatbubble"></span>
           <div class="mui-media-body">商品购买</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">
@@ -110,6 +110,9 @@ img {
 
 
 <script>
+
+import common from '../../common/common.js';
+
 export default {
   data() {
     return {
@@ -119,14 +122,14 @@ export default {
   // 这个方法是Vue的生命周期方法之一,当我们实现了之后 当home.vue被创建出来的时候就会自动调用
   created() {
     this.$root.isShow = true;
-    // console.log('hahahahaha');
+    // console.log(this);
     // 在这里调用请求函数
     this.getLunboData();
   },
   methods: {
     // 向后台请求轮播图数据
     getLunboData() {
-      const url = "http://vue.studyit.io/api/getlunbo";
+      const url = common.apihost+"api/getlunbo";
       this.$http.get(url).then(res => {
         // console.log(res);
         this.lunboArray = res.body.message;

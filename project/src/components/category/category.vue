@@ -8,7 +8,7 @@
 <script>
   export default{
     created(){
-      this.$root.isShow = false;
+      
     }
   }
 </script>

@@ -2,16 +2,16 @@
   <div>
     <ul class="mui-table-view">
       <li v-for="(v,i) in newsArray" :key="v.id" class="mui-table-view-cell mui-media">
-        <a href="javascript:;">
+        <router-link :to="'/news/newsInfo/'+v.id">
           <img class="mui-media-object mui-pull-left" :src="v.img_url">
           <div class="mui-media-body">
             <p class="titleStyle">{{v.title}}</p>
             <p class="mui-ellipsis">
-              <span>{{v.add_time}}</span>
+              <span>{{v.add_time|fmtDate('YYYY-MM-DD HH:mm')}}</span>
               <span>点击数{{v.click}}次</span>
             </p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -53,7 +53,7 @@
 
 <script>
 
-// import moment from 'moment'
+import common from '../../common/common.js';
 
 export default {
   data() {
@@ -62,15 +62,12 @@ export default {
     };
   },
   created() {
-    // console.log('hehehe');
-    this.$root.isShow = false;
-    console.log(this);
     this.getNewsData();
   },
   methods: {
     // 向后台请求新闻列表数据
     getNewsData() {
-      const url = "http://vue.studyit.io/api/getnewslist";
+      const url = common.apihost+"api/getnewslist";
       this.$http.get(url).then(res => {
         // console.log(res);
         this.newsArray = res.body.message;
